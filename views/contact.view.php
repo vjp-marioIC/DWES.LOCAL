@@ -33,33 +33,59 @@
        	   <h1>CONTACT US</h1>
        	   <hr>
        	   <p>Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-	       <form class="form-horizontal">
+
+			<?php if (!empty($erroresValidacion)): ?>
+				<div class="alert alert-danger">
+					<ul>
+						<?php foreach ($erroresValidacion as $error): ?>
+							<li>
+								<?php echo $error ?>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			<?php endif; ?>
+
+			<?php if (empty($erroresValidacion) && isset($nombre)): ?>
+				<div class="alert alert-info">
+					<ul>
+						<li>Nombre: <?php echo $nombre ?></li>
+						<li>Apellido: <?php echo $apellido ?></li>
+						<li>Asunto: <?php echo $asunto ?></li>
+						<li>Correo: <?php echo $correo ?></li>
+						<li>Menasje:<?php echo $mensaje ?> </li>
+					</ul>
+				</div>
+			<?php endif; ?>
+
+	       <form class="form-horizontal" action="<?=$_SERVER['PHP_SELF'];?>" method="post">
 	       	  <div class="form-group">
 	       	  	<div class="col-xs-6">
-	       	  	    <label class="label-control">First Name</label>
-	       	  		<input class="form-control" type="text">
+	       	  	    <label class="label-control" for="nombre">First Name</label>
+	       	  		<input class="form-control" id="nombre" name="nombre" type="text" value="<?php if (!empty($erroresValidacion)) { echo $nombre; }?>">
 	       	  	</div>
 	       	  	<div class="col-xs-6">
-	       	  	    <label class="label-control">Last Name</label>
-	       	  		<input class="form-control" type="text">
+	       	  	    <label class="label-control" for="apellido">Last Name</label>
+	       	  		<input class="form-control" id="apellido" name="apellido" type="text" value="<?php if (!empty($erroresValidacion)) { echo $apellido; }?>">
 	       	  	</div>
 	       	  </div>
 	       	  <div class="form-group">
 	       	  	<div class="col-xs-12">
-	       	  		<label class="label-control">Email</label>
-	       	  		<input class="form-control" type="text">
+	       	  		<label class="label-control" for="correo">Email</label>
+	       	  		<input class="form-control" id="correo" name="correo" type="text" value="<?php if (!empty($erroresValidacion)) { echo $correo; }?>">
 	       	  	</div>
 	       	  </div>
 	       	  <div class="form-group">
 	       	  	<div class="col-xs-12">
-	       	  		<label class="label-control">Subject</label>
-	       	  		<input class="form-control" type="text">
+	       	  		<label class="label-control" for="asunto">Subject</label>
+	       	  		<input class="form-control" id="asunto" name="asunto" type="text" value="<?php if (!empty($erroresValidacion)) { echo $asunto; }?>">
 	       	  	</div>
 	       	  </div>
 	       	  <div class="form-group">
 	       	  	<div class="col-xs-12">
-	       	  		<label class="label-control">Message</label>
-	       	  		<textarea class="form-control"></textarea>
+	       	  		<label class="label-control" for="mensaje">Message</label>
+	       	  		<textarea class="form-control" name="mensaje"><?php if (!empty($erroresValidacion)) { echo $mensaje; }?></textarea>
+
 	       	  		<button class="pull-right btn btn-lg sr-button">SEND</button>
 	       	  	</div>
 	       	  </div>
