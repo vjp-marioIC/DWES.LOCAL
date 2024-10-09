@@ -27,4 +27,5 @@
     }
 
     require 'views/contact.view.php';
+    require 'utils/utils.php';
 ?>
