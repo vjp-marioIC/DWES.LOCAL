@@ -24,11 +24,13 @@
 			<?php if (empty($erroresValidacion) && isset($nombre)): ?>
 				<div class="alert alert-info">
 					<ul>
-						<li>Nombre: <?php echo $nombre ?></li>
-						<li>Apellido: <?php echo $apellido ?></li>
-						<li>Asunto: <?php echo $asunto ?></li>
-						<li>Correo: <?php echo $correo ?></li>
-						<li>Menasje:<?php echo $mensaje ?> </li>
+						<?php foreach ($datos as $clave => $valor): ?>
+							<?php if (!empty($valor)): ?>
+								<li>
+									<?php echo $clave . $valor ?>
+								</li>
+							<?php endif; ?>
+						<?php endforeach; ?>
 					</ul>
 				</div>
 			<?php endif; ?>
@@ -59,7 +61,7 @@
 	       	  <div class="form-group">
 	       	  	<div class="col-xs-12">
 	       	  		<label class="label-control" for="mensaje">Message</label>
-	       	  		<textarea class="form-control" name="mensaje"><?php if (!empty($erroresValidacion)) { echo $mensaje; }?></textarea>
+	       	  		<textarea class="form-control" name="mensaje"><?php if (!empty($erroresValidacion)) { echo $mensaje; } ?></textarea>
 
 	       	  		<button class="pull-right btn btn-lg sr-button">SEND</button>
 	       	  	</div>

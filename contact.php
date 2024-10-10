@@ -24,6 +24,15 @@
         if (empty($asunto)) {
             $erroresValidacion [] = 'El campo asunto esta vacio.';
         }
+
+        // ARRAY CON LOS DATOS DEL FORMULARIO
+        $datos = [
+            'Nombre: ' => $nombre,
+            'Apellidos: ' => $apellido,
+            'Correo: ' => $correo,
+            'Asunto: ' => $asunto,
+            'Mensaje: ' => $mensaje
+        ];
     }
 
     require 'views/contact.view.php';
