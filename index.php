@@ -9,7 +9,7 @@
         $numLikes = rand(0, 10000);
         $numDownloads = rand(0, 10000);
 
-        $imagenGaleria[] = new imagenGaleria($nombre, $descripcion, $numVisualizaciones, $numLikes, $numDownloads);
+        $imagenesGaleria[] = new imagenGaleria($nombre, $descripcion, $numVisualizaciones, $numLikes, $numDownloads);
     }
 
     require 'views/index.view.php';
