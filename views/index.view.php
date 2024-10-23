@@ -44,7 +44,7 @@
                       ];
 
         foreach ($categorias as $categoria) {
-          $id_categoria = $categoria["id"];
+          $idCategoria = $categoria["id"];
           $isActive = $categoria["isActive"];
           $imagenes = $imagenesGaleria;
 
