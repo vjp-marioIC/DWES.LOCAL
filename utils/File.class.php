@@ -10,7 +10,7 @@
             $this->fileName = '';
 
             // Comprobamos que es array contiene el fichero
-            if (!isset($this->file)) {
+            if (empty($this->file['name'])) {
                 throw new FileException('Debes seleccionar un fichero');
             }
 
