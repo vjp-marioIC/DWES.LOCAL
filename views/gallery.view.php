@@ -15,14 +15,14 @@
                     </button>
                     <?php if (empty($errores)) : ?>
                         <p><?= $mensaje ?></p>
+                    <?php else: ?>
+                        <ul>
+                            <?php foreach ($errores as $error) : ?>
+                                <li><?= $error ?></li>
+                            <?php endforeach; ?>
+                        </ul>
                     <?php endif; ?>
                 </div>
-            <?php else : ?>
-                <ul>
-                    <?php foreach ($errores as $error) : ?>
-                        <li><?= $error ?></li>
-                    <?php endforeach ?>
-                </ul>
             <?php endif; ?>
             <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?= $_SERVER['PHP_SELF']; ?>">
                 <div class="form-group">
