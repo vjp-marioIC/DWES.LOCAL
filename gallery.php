@@ -10,5 +10,5 @@
         $mensaje = 'Datos enviados';
     }
 
-    require 'views/galeria.view.php';
+    require 'views/gallery.view.php';
 ?>

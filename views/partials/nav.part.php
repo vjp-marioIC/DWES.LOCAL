@@ -20,7 +20,7 @@
             <li class="<?= esOpcionMenuActiva('about') ? 'active' : ''; ?> lien"><a href="about.php"><i class="fa fa-bookmark sr-icons"></i> About</a></li>
             <li class="<?= existeOpcionMenuActivaEnArray(['blog', 'single_post']) ? 'active' : ''; ?> lien"><a href="blog.php"><i class="fa fa-file-text sr-icons"></i> Blog</a></li>
             <li class="<?= esOpcionMenuActiva('contact') ? 'active' : ''; ?> lien"><a href="contact.php"><i class="fa fa-phone-square sr-icons"></i> Contact</a></li>
-            <li class="<?= esOpcionMenuActiva('galeria') ? 'active' : ''; ?> lien"><a href="galeria.php"><i class="fa fa-image sr-icons"></i> Galeria</a></li>
+            <li class="<?= esOpcionMenuActiva('gallery') ? 'active' : ''; ?> lien"><a href="gallery.php"><i class="fa fa-image sr-icons"></i> Gallery</a></li>
           </ul>
        </div>
      </div>
