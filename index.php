@@ -1,5 +1,4 @@
 <?php
-    require 'utils/utils.php';
     require_once 'entities/ImagenGaleria.class.php';
 
     for ($i=1; $i < 13; $i++) {
