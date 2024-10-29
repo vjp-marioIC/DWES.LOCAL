@@ -16,6 +16,7 @@
             // El parametro (filename) es 'imagen' por que así se lo indicamos en el
             // formulario (type = "file" name = "imagen")
             $imagen ->saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);
+            $imagen->copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY, ImagenGaleria::RUTA_IMAGENES_PORTFOLIO);
             $mensaje = 'Datos enviados';
         }
         catch (FileException $exception) {
