@@ -46,5 +46,31 @@
         public function getFileName() {
             return $this->fileName;
         }
+
+        public function saveUploadFile(string $rutaDestino) {
+            // Comprueo que el fichero temporal con el que vamos a trabajar se
+            // haya subido previamente por peticioón Post
+            if (is_uploaded_file($this->file['tmp_name']) === false) {
+                throw new FileException('El archivo no se ha podido subir mediante el formulario.');
+            }
+
+            // Cargamos el nombre del fichero
+            $this->fileName = $this->file['name']; // Nombre original del fichero cuando se subió
+            $ruta = $rutaDestino . $this->fileName; // Concateno la (rutaDestino) con el nombre del fichero
+
+            // Comprobamos que la ruta no se corresponda con un fichero que ya exista
+            if (is_file(($ruta) === true)) {
+                // No sobreescribo, si no que genero uno nuevo añadiendo la fecha y la hora actual
+                $fechaActual = date('dmYHis');
+                $this->fileName = $this->fileName . '_' . $fechaActual;
+                $ruta = $rutaDestino . $this->fileName; // Actualizar la variable ruta con el nuevo nombre
+            }
+
+            // Muevo el fichero subido del directorio temporal (viene definido en php.ini)
+            if (move_uploaded_file($this->file['tmp_name'], $ruta) === false) {
+                // Devuelve false si no se ha podido mover
+                throw new FileException("No se puede mover el fichero a su destino.");
+            }
+        }
     }
 ?>

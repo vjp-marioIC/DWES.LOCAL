@@ -11,7 +11,7 @@
             <span class="icon-bar"></span>
           </button>
             <a  class="navbar-brand page-scroll" href="#page-top">
-              <span>[PHOTO]</span>
+              <span>Mario Iglesias (DWES)</span>
             </a>
        </div>
        <div class="collapse navbar-collapse navbar-right" id="menu">
