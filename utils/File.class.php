@@ -58,12 +58,23 @@
             $this->fileName = $this->file['name']; // Nombre original del fichero cuando se subió
             $ruta = $rutaDestino . $this->fileName; // Concateno la (rutaDestino) con el nombre del fichero
 
+            $contador = 0;
             // Comprobamos que la ruta no se corresponda con un fichero que ya exista
-            if (is_file(($ruta) === true)) {
+            if (is_file($ruta) == true) {
+                $contador++;
                 // No sobreescribo, si no que genero uno nuevo añadiendo la fecha y la hora actual
-                $fechaActual = date('dmYHis');
-                $this->fileName = $this->fileName . '_' . $fechaActual;
+                $troceado = explode(".", $this->fileName);
+                
+                $this->fileName = $troceado[0] . "(" . $contador . ")." . $troceado[1];
+
                 $ruta = $rutaDestino . $this->fileName; // Actualizar la variable ruta con el nuevo nombre
+
+                while (is_file($rutaDestino . $this->fileName) == true) {
+                    $contador++;
+                    $this->fileName = $troceado[0] . "(" . $contador . ")." . $troceado[1];
+
+                    $ruta = $rutaDestino . $this->fileName; // Actualizar la variable ruta con el nuevo nombre
+                }
             }
 
             // Muevo el fichero subido del directorio temporal (viene definido en php.ini)
