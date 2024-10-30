@@ -13,7 +13,7 @@ if (isset($asociados)) {
 <?php foreach ($mostrarAsociados as $asociado): ?>
     <ul class="list-inline">
         <li>
-            <img src="../../images/index/<?= $asociado->getLogo(); ?>" alt="<?= $asociado->getDescripcion(); ?>">
+            <img src="../../images/index/<?= $asociado->getLogo(); ?>" alt="<?= $asociado->getDescripcion(); ?>" title="<?= $asociado->getDescripcion(); ?>">
         </li>
         <li>
             <?= $asociado->getNombre(); ?>

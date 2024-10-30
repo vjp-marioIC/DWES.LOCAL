@@ -1,5 +1,5 @@
 <?php
-    require 'utils/File.class.php';
+    require 'entities/File.class.php';
     require 'entities/ImagenGaleria.class.php';
 
     $errores = [];
