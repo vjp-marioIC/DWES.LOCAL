@@ -1,4 +1,5 @@
 <?php
+    // MÉTODO PARA SABER SI LA OPCIÓN DE LA CABECERA ESTÁ ACTIVA
     function esOpcionMenuActiva(string $opcionMenu): bool{
         $active = false;
 
@@ -25,5 +26,16 @@
         }
 
         return false;
+    }
+
+    // FUNCIÓN PARA OBTENER TRES ELEMENTOS ALEATORIOS DE UN ARRAY
+    function obtenerTresElementosAleatoriosArray(array $array): array {
+        // MEZCLO LOS ELEMENTOS DEL ARRAY
+        shuffle($array);
+
+        // OBTENGO TRES ELEMENTOS DESDE LA POSICIÓN (0) DEL ARRAY
+        $tresElementos = array_slice($array, 0, 3);
+
+        return $tresElementos;
     }
 ?>

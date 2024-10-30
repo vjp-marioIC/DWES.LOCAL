@@ -48,6 +48,7 @@
           $isActive = $categoria["isActive"];
           $imagenes = $imagenesGaleria;
 
+          // MEZCLO LOS ELEMENTOS DEL ARRAY
           shuffle($imagenes);
                 
           require 'partials/imagegallery.part.php';
@@ -83,18 +84,9 @@
         <h4>Our Main Partners</h4>
         <hr>
         <div class="text-muted text-left">
-          <ul class="list-inline">
-            <li><img src="images/index/log2.jpg" alt="logo"></li>
-            <li>First Partner Name</li>
-          </ul>
-          <ul class="list-inline">
-            <li><img src="images/index/log1.jpg" alt="logo"></li>
-            <li>Second Partner Name</li>
-          </ul>
-          <ul class="list-inline">
-            <li><img src="images/index/log3.jpg" alt="logo"></li>
-            <li>Third Partner Name</li>
-          </ul>
+          <?php
+            require_once 'partials/partner.part.php';
+          ?>
         </div>
       </div>
     </div>
