@@ -1,19 +1,19 @@
 <?php
-    class Connection {
-        public static function make() {
-            $opciones = [
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8", // Para que utilice utf8
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // Para cuando se produzca un error
+    require_once __DIR__. '/App.class.php';
 
-                // Se genera una excepción y así poder capturarla
-                PDO::ATTR_PERSISTENT => true // Para que no cierre la conexión y mejorar el rendimiento
-            ];
+    class Connection {
+        public static function make($config) {
             try {
-                $connection = new PDO('mysql:host=dwes.local;dbname=proyecto;charset=utf8', 'userProyecto', 'userProyecto', $opciones);
+                $config = App::get('config')['database']; // Utilizamos el contenedor de servicios
+                                                          // para obtener la configuración
+
+                $connection = new PDO(
+                    $config['connection'] . '; dbname=' . $config['name'],
+                    $config['username'], $config['password'],
+                    $config['options']
+                );
             } catch (PDOException $PDOException) {
-                die($PDOException -> getMessage());
-                // (die) es una función que muestra el string que se le pasa
-                // y detiene la ejecución del script
+                throw new AppException("No se ha podido crear la conexión a la BD");
             }
 
             return $connection;

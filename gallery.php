@@ -3,13 +3,20 @@
     require 'entities/ImagenGaleria.class.php';
     require 'entities/Connection.class.php';
     require 'entities/QueryBuilder.class.php';
+    require 'entities/App.class.php';
 
     $errores = [];
     $descripcion = '';
     $mensaje = '';
 
     try {
-        $connection = Connection::make();
+        $config = require_once 'app/config.php';
+        
+        // Guardamos la configuración en el contenedor de servicios:
+        App::bind('config', $config);
+
+        // Ya no necesitamos llamar al método make
+        // $connection = Connection::make($config['database']);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $descripcion = trim(htmlspecialchars($_POST['descripcion']));
