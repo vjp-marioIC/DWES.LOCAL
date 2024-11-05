@@ -10,14 +10,16 @@
         private $numVisualizaciones;
         private $numLikes;
         private $numDownloads;
+        private $id;
 
         // CONSTRUCTOR PARAMETRIZADO
-        public function __construct(string $nombre, string $descripcion, int $numVisualizaciones = 0, int $numLikes = 0, int $numDownloads = 0) {
+        public function __construct(string $nombre='', string $descripcion='', int $numVisualizaciones = 0, int $numLikes = 0, int $numDownloads = 0) {
             $this->nombre = $nombre;
             $this->descripcion = $descripcion;
             $this->numVisualizaciones = $numVisualizaciones;
             $this->numLikes = $numLikes;
             $this->numDownloads = $numDownloads;
+            $this->id = null;
         }
 
         // GETTERS Y SETTERS
@@ -69,6 +71,10 @@
         public function setNumDownloads(int $numDownloads): void
         {
             $this->numDownloads = $numDownloads;
+        }
+
+        public function getId() {
+            return $this->id;
         }
 
         // FUNCIÓN OBTENER URL PORTFOLIO
