@@ -5,6 +5,8 @@
     require_once 'entities/QueryBuilder.class.php';
     require_once 'exceptions/AppException.class.php';
     require_once 'repository/ImagenGaleriaRepository.class.php';
+    require_once 'repository/CategoriaRepository.class.php';
+    require_once 'entities/Categoria.class.php';
 
     $errores = [];
     $descripcion = '';
@@ -18,9 +20,11 @@
         
         //$queryBuilder = new QueryBuilder('imagenes', 'ImagenGaleria');
         $imagenRepository = new ImagenGaleriaRepository();
+        $categoriaRepository = new CategoriaRepository();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $descripcion = trim(htmlspecialchars($_POST['descripcion']));
+            $categoria = trim(htmlspecialchars($_POST['categoria']));
             $tiposAceptados = ['image/jpeg', 'image/jpg', 'image/gif', 'image/png'];
             // Tipología MIME 'tipodearchivo/extension'
             $imagen = new File('imagen', $tiposAceptados);
@@ -30,7 +34,7 @@
             $imagen ->saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);
             $imagen->copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY, ImagenGaleria::RUTA_IMAGENES_PORTFOLIO);
             
-            $imagenGaleria = new ImagenGaleria($imagen->getFileName(), $descripcion);
+            $imagenGaleria = new ImagenGaleria($imagen->getFileName(), $descripcion, $categoria);
             $imagenRepository->save($imagenGaleria);
             $descripcion = ''; // Reinicio la variable para que no aparezca relleno en el formulario
             $mensaje = "Imagen guardada";
@@ -41,6 +45,7 @@
         $errores[] = $exception->getMessage();
     } finally {
         $imagenes = $imagenRepository->findAll();
+        $categorias = $categoriaRepository->findAll();
     }
     
     require 'views/gallery.view.php';
