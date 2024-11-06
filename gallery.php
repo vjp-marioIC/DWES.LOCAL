@@ -1,10 +1,10 @@
 <?php
-    require 'entities/File.class.php';
-    require 'entities/ImagenGaleria.class.php';
-    require 'entities/Connection.class.php';
-    require 'entities/QueryBuilder.class.php';
+    require_once 'entities/File.class.php';
+    require_once 'entities/ImagenGaleria.class.php';
+    require_once 'entities/Connection.class.php';
+    require_once 'entities/QueryBuilder.class.php';
     require_once 'exceptions/AppException.class.php';
-    require 'repository/ImagenGaleriaRepository.class.php';
+    require_once 'repository/ImagenGaleriaRepository.class.php';
 
     $errores = [];
     $descripcion = '';
