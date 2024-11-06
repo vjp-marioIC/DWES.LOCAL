@@ -13,18 +13,6 @@
             $this->classEntity = $classEntity;
         }
 
-        public function findAll(): array {
-            $sql = "SELECT * FROM $this->table"; // Sentencia SQL a ejecutar
-
-            $pdoStatement = $this -> connection->prepare($sql);
-
-            if ($pdoStatement->execute() === false) {
-                throw new QueryException("No se ha podido ejecutar la consulta");
-            }
-
-            return $pdoStatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->classEntity);
-        }
-
         public function save(IEntity $entity) : void {
             try {
                 $parameters = $entity->toArray();
@@ -39,6 +27,34 @@
             } catch (PDOException $exception) {
                 throw new QueryException("Error al insetar en la BD");
             }
+        }
+
+        public function executeQuery(string $sql) : array {
+            $pdoStatement = $this->connection->prepare($sql);
+
+            if ($pdoStatement->execute() === false) {
+                throw new QueryException("No se ha podido ejecutar la consulta");
+            }
+
+            return $pdoStatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->classEntity);
+        }
+
+        public function findAll(): array {
+            $sql = "SELECT * FROM $this->table"; // Sentencia SQL a ejecutar
+
+            return $this->executeQuery($sql);
+        }
+
+        public function find(int $id): IEntity {
+            $sql = "SELECT * FROM $this->table WHERE id=$id"; // Sentencia SQL a ejecutar
+            $result = $this->executeQuery($sql);
+
+            // Si resultado esta lleno, muestro la excepción
+            if (empty($result)) {
+                throw new NotFoundException("No se ha encontrado ningún elemnto con id $id");
+            }
+            
+            return $result[0];
         }
     }
 ?>
