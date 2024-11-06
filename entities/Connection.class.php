@@ -8,7 +8,7 @@
                                                           // para obtener la configuración
 
                 $connection = new PDO(
-                    $config['connection'] . '; dbname=' . $config['name'],
+                    $config['connection'] . ';dbname=' . $config['name'],
                     $config['username'], $config['password'],
                     $config['options']
                 );

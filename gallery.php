@@ -15,6 +15,8 @@
         
         // Guardamos la configuración en el contenedor de servicios:
         App::bind('config', $config);
+        
+        //$queryBuilder = new QueryBuilder('imagenes', 'ImagenGaleria');
         $imagenRepository = new ImagenGaleriaRepository();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -38,7 +40,6 @@
         // Guardo en un array los errores
         $errores[] = $exception->getMessage();
     } finally {
-        var_dump($imagenRepository);
         $imagenes = $imagenRepository->findAll();
     }
     
