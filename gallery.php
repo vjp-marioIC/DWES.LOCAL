@@ -3,7 +3,8 @@
     require 'entities/ImagenGaleria.class.php';
     require 'entities/Connection.class.php';
     require 'entities/QueryBuilder.class.php';
-    require 'entities/App.class.php';
+    require_once 'exceptions/AppException.class.php';
+    require 'repository/ImagenGaleriaRepository.class.php';
 
     $errores = [];
     $descripcion = '';
@@ -14,9 +15,7 @@
         
         // Guardamos la configuración en el contenedor de servicios:
         App::bind('config', $config);
-
-        // Ya no necesitamos llamar al método make
-        // $connection = Connection::make($config['database']);
+        $imagenRepository = new ImagenGaleriaRepository();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $descripcion = trim(htmlspecialchars($_POST['descripcion']));
@@ -29,23 +28,18 @@
             $imagen ->saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);
             $imagen->copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY, ImagenGaleria::RUTA_IMAGENES_PORTFOLIO);
             
-            $sql = "INSERT INTO imagenes (nombre, descripcion) VALUES (:nombre, :descripcion)";
-            $pdoStatement = $connection -> prepare($sql); // Preparamos la consulta
-            $parametros = [':nombre' => $imagen -> getFileName(), ':descripcion' => $descripcion];
-
-            if ($pdoStatement -> execute($parametros) === false) { // La ejecutamos con los parametros
-                $errores[] = "No se ha podido guardar la imagen en la BD";
-            } else {
-                $descripcion = ''; // Reinicio la variable para que no aparezca relleno en el formulario
-                $mensaje = "Imagen guardada";
-            }
+            $imagenGaleria = new ImagenGaleria($imagen->getFileName(), $descripcion);
+            $imagenRepository->save($imagenGaleria);
+            $descripcion = ''; // Reinicio la variable para que no aparezca relleno en el formulario
+            $mensaje = "Imagen guardada";
         }
-        $queryBuilder = new QueryBuilder($connection);
-        $imagenes = $queryBuilder->findAll('imagenes', 'ImagenGaleria');
     }
-    catch (FileException | QueryException $exception) {
+    catch (FileException | QueryException | AppException $exception) {
         // Guardo en un array los errores
         $errores[] = $exception->getMessage();
+    } finally {
+        var_dump($imagenRepository);
+        $imagenes = $imagenRepository->findAll();
     }
     
     require 'views/gallery.view.php';

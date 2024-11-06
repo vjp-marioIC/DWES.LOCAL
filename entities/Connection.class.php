@@ -2,7 +2,7 @@
     require_once __DIR__. '/App.class.php';
 
     class Connection {
-        public static function make($config) {
+        public static function make() {
             try {
                 $config = App::get('config')['database']; // Utilizamos el contenedor de servicios
                                                           // para obtener la configuración
