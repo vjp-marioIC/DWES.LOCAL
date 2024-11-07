@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-11-2024 a las 19:10:45
+-- Tiempo de generación: 07-11-2024 a las 19:16:41
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -52,8 +52,8 @@ CREATE TABLE `categorias` (
 
 INSERT INTO `categorias` (`id`, `nombre`, `numImagenes`) VALUES
 (1, 'Categoría 1', 1),
-(2, 'Categoría 2', 1),
-(3, 'Categoría 3', 1);
+(2, 'Categoría 2', 0),
+(3, 'Categoría 3', 0);
 
 -- --------------------------------------------------------
 
@@ -76,9 +76,7 @@ CREATE TABLE `imagenes` (
 --
 
 INSERT INTO `imagenes` (`id`, `nombre`, `descripcion`, `numVisualizaciones`, `numLikes`, `numDownloads`, `categoria`) VALUES
-(6, 'GatoInformatico(4).jpg', 'Gato Informático', 0, 0, 0, 1),
-(7, 'GatoInformaticoEnSilla.jpg', 'Gato Informático en silla', 0, 0, 0, 2),
-(8, 'GatoInformaticoPortatil.jpg', 'Gato Informático portátil', 0, 0, 0, 3);
+(9, 'GatoInformatico.jpg', 'Gato Informático', 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -145,7 +143,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `mensajes`
