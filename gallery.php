@@ -35,7 +35,7 @@
             $imagen->copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY, ImagenGaleria::RUTA_IMAGENES_PORTFOLIO);
             
             $imagenGaleria = new ImagenGaleria($imagen->getFileName(), $descripcion, $categoria);
-            $imagenRepository->save($imagenGaleria);
+            $imagenRepository->guarda($imagenGaleria);
             $descripcion = ''; // Reinicio la variable para que no aparezca relleno en el formulario
             $mensaje = "Imagen guardada";
         }

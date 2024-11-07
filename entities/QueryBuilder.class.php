@@ -59,7 +59,7 @@
 
         public function executeTransaction(callable $fnExecuteQuerys) {
             try {
-                $this->connection->beginTransaction;
+                $this->connection->beginTransaction();
                 $fnExecuteQuerys(); // Llamo al callable para que ejecute todas
                                     // las operaciones que sean necesarias realizar
                 $this->connection->commit(); // Para confirmar las operaciones pendientes y ejecutar 
@@ -90,6 +90,9 @@
             $sql = sprintf('UPDATE %s SET %s WHERE id=:id',
                     $this->table,
                     $this->getUpdates(array_keys($paremeters)));
+
+            $statement = $this->connection->prepare($sql);
+            $statement->execute($paremeters);
         }
     }
 ?>

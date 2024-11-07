@@ -13,7 +13,7 @@
         }
 
         public function guarda(ImagenGaleria $imagenGaleria) {
-            $fnGuardaImagen = function () use ($imagenGaleria){
+            $fnGuardaImagen = function () use ($imagenGaleria) {
                 $categoria = $this->getCategoria($imagenGaleria);
                 $categoriaRepository = new CategoriaRepository();
                 $categoriaRepository->nuevaImagen($categoria);

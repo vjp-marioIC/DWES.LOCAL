@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2024 a las 20:40:19
+-- Tiempo de generación: 07-11-2024 a las 18:33:13
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -51,9 +51,9 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id`, `nombre`, `numImagenes`) VALUES
-(1, 'Catagoria 1', 0),
-(2, 'Catagoria 2', 0),
-(3, 'Catagoria 3', 0);
+(1, 'Categoría 1', 0),
+(2, 'Categoría 2', 0),
+(3, 'Categoría 3', 0);
 
 -- --------------------------------------------------------
 
