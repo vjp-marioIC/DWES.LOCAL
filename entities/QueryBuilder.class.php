@@ -76,8 +76,9 @@
             foreach ($parameters as $key=>$value) {
                 if ($key !== 'id') {
                     if ($updates !== '') {
-                        $updates.= $key . '=:' .$key;
+                        $updates .= ', ';
                     }
+                    $updates.= $key . '=:' .$key;
                 }
             }
 
@@ -85,14 +86,17 @@
         }
 
         public function update(IEntity $entity): void {
-            $paremeters = $entity->toArray();
+            try {
+                $paremeters = $entity->toArray();
 
-            $sql = sprintf('UPDATE %s SET %s WHERE id=:id',
-                    $this->table,
-                    $this->getUpdates(array_keys($paremeters)));
+                $sql = sprintf('UPDATE %s SET %s WHERE id=:id',
+                        $this->table, $this->getUpdates($paremeters));
 
-            $statement = $this->connection->prepare($sql);
-            $statement->execute($paremeters);
+                $statement = $this->connection->prepare($sql);
+                $statement->execute($paremeters);
+            } catch (PDOException $pdoException) {
+                throw new QueryException("Error al actualizar");
+            }
         }
     }
 ?>
