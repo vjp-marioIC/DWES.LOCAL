@@ -56,5 +56,40 @@
             
             return $result[0];
         }
+
+        public function executeTransaction(callable $fnExecuteQuerys) {
+            try {
+                $this->connection->beginTransaction;
+                $fnExecuteQuerys(); // Llamo al callable para que ejecute todas
+                                    // las operaciones que sean necesarias realizar
+                $this->connection->commit(); // Para confirmar las operaciones pendientes y ejecutar 
+            } catch (PDOException $pdoException) {
+                $this->connection->rollBack(); // Desace todos los cambios después desde el beginTransaction
+                
+                throw new QueryException("No se ha podido realizar la operación");
+            }
+        }
+
+        public function getUpdates(array $parameters) {
+            $updates = '';
+            
+            foreach ($parameters as $key=>$value) {
+                if ($key !== 'id') {
+                    if ($updates !== '') {
+                        $updates.= $key . '=:' .$key;
+                    }
+                }
+            }
+
+            return $updates;
+        }
+
+        public function update(IEntity $entity): void {
+            $paremeters = $entity->toArray();
+
+            $sql = sprintf('UPDATE %s SET %s WHERE id=:id',
+                    $this->table,
+                    $this->getUpdates(array_keys($paremeters)));
+        }
     }
 ?>

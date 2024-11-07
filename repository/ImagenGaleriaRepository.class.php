@@ -11,5 +11,17 @@
 
             return $catgoriaRepository->find($imagenGaleria->getCategoria());
         }
+
+        public function guarda(ImagenGaleria $imagenGaleria) {
+            $fnGuardaImagen = function () use ($imagenGaleria){
+                $categoria = $this->getCategoria($imagenGaleria);
+                $categoriaRepository = new CategoriaRepository();
+                $categoriaRepository->nuevaImagen($categoria);
+
+                $this->save($imagenGaleria); // Guarda la imagen
+            };
+
+            $this->executeTransaction($fnGuardaImagen);
+        }
     }
 ?>
