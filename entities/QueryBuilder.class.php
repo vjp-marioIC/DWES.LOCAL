@@ -71,18 +71,15 @@
         }
 
         public function getUpdates(array $parameters) {
-            $updates = '';
+            $updates = [];
             
-            foreach ($parameters as $key=>$value) {
+            foreach (array_keys($parameters) as $key) {
                 if ($key !== 'id') {
-                    if ($updates !== '') {
-                        $updates .= ', ';
-                    }
-                    $updates.= $key . '=:' .$key;
+                    $updates[] = "$key = :$key";
                 }
             }
 
-            return $updates;
+            return implode(', ', $updates);
         }
 
         public function update(IEntity $entity): void {

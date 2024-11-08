@@ -16,12 +16,12 @@
         private $categoria;
 
         // CONSTRUCTOR PARAMETRIZADO
-        public function __construct(string $nombre='', string $descripcion='', int $categoria=0, int $numVisualizaciones = 0, int $numLikes = 0, int $numDownloads = 0) {
+        public function __construct(string $nombre='', string $descripcion='', int $categoria=0, int $numVisualizaciones = null, int $numLikes = null, int $numDownloads = null) {
             $this->nombre = $nombre;
             $this->descripcion = $descripcion;
-            $this->numVisualizaciones = $numVisualizaciones;
-            $this->numLikes = $numLikes;
-            $this->numDownloads = $numDownloads;
+            $this->numVisualizaciones = $numVisualizaciones ?? rand(0, 10000);
+            $this->numLikes = $numLikes ?? rand(0, 10000);
+            $this->numDownloads = $numDownloads ?? rand(0, 10000);
             $this->id = null;
             $this->categoria = $categoria;
         }
