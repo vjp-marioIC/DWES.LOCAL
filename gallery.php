@@ -44,6 +44,7 @@
         // Guardo en un array los errores
         $errores[] = $exception->getMessage();
     } finally {
+        // OBTENGO TODAS LA IMAGENES Y LAS CATEGORIAS
         $imagenes = $imagenRepository->findAll();
         $categorias = $categoriaRepository->findAll();
     }
