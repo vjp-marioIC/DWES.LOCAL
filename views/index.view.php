@@ -12,7 +12,7 @@
           <img class="img-responsive" src="images/index/imgIndexPrincipal.png" alt="header picture">
         </div>
         <div class="carousel-caption">
-          <h1>FIND NICE PICTURES HERE</h1>
+          <h1>Welcome to the Forge!</h1>
           <hr>
         </div>
       </div>
