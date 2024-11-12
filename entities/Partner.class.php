@@ -63,8 +63,8 @@
             return [
                 'id' => $this->getId(),
                 'nombre' => $this->getNombre(),
-                'descripcion' => $this->getDescripcion(),
-                'logo' => $this->getLogo()
+                'logo' => $this->getLogo(),
+                'descripcion' => $this->getDescripcion()
             ];
         }
     }
