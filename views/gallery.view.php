@@ -81,7 +81,7 @@
                                 <td><?=$imagen->getNumDownloads()?></td>
                             </tr>
                         <?php endforeach; ?>
-                    </tbody>0
+                    </tbody>
                 </table>
             </div>
         </div>

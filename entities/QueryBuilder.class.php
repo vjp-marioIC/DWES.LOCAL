@@ -87,7 +87,7 @@
                 $paremeters = $entity->toArray();
 
                 $sql = sprintf('UPDATE %s SET %s WHERE id=:id',
-                        $this->table, $this->getUpdates($paremeters));
+                       $this->table, $this->getUpdates($paremeters));
 
                 $statement = $this->connection->prepare($sql);
                 $statement->execute($paremeters);

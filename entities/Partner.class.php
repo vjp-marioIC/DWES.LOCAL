@@ -1,16 +1,20 @@
 <?php
-    class Partner {
+    require_once 'database/IEntity.class.php';
+
+    class Partner implements IEntity{
 
         // ATRIBUTOS
         private $nombre;
         private $logo;
         private $descripcion;
+        private $id;
 
         // CONSTRUCTOR PARAMETRIZADO
-        public function __construct(string $nombre, string $logo, string $descripcion) {
+        public function __construct(string $nombre='', string $logo='', string $descripcion='') {
             $this->nombre = $nombre;
             $this->logo = $logo;
             $this->descripcion = $descripcion;
+            $this->id = null;
         }
 
         // GETTERS Y SETTERS
@@ -42,6 +46,19 @@
         public function setDescripcion(string $descripcion): void
         {
             $this->descripcion = $descripcion;
+        }
+
+        public function getId() {
+            return $this->id;
+        }
+
+        public function toArray(): array {
+            return [
+                'id' => $this->getId(),
+                'nombre' => $this->getNombre(),
+                'descripcion' => $this->getDescripcion(),
+                'logo' => $this->getLogo()
+            ];
         }
     }
 ?>
