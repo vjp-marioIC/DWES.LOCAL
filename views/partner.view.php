@@ -61,7 +61,7 @@
                                 <th scope="row"><?=$asociado->getId()?></th>
                                 <td><?=$asociado->getNombre()?></td>
                                 <td>
-                                    <img src="<?=$asociado->getUrlGallery()?>"
+                                    <img src="<?=$asociado->getUrlAsociados()?>"
                                         alt="<?=$asociado->getDescripcion()?>"
                                         title="<?=$asociado->getDescripcion()?>"
                                         width="100px"

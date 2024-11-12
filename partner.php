@@ -26,7 +26,7 @@
 
             // El parametro (filename) es 'imagen' por que así se lo indicamos en el
             // formulario (type = "file" name = "imagen")
-            //$logo ->saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);
+            $logo ->saveUploadFile(Partner::RUTA_IMAGENES_ASOCIADOS);
             //$logo->copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY, ImagenGaleria::RUTA_IMAGENES_PORTFOLIO);
             
             $asociado = new Partner($nombre, $logo->getFileName(), $descripcion);

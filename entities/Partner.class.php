@@ -3,6 +3,8 @@
 
     class Partner implements IEntity{
 
+        const RUTA_IMAGENES_ASOCIADOS  = 'images/index/';
+
         // ATRIBUTOS
         private $nombre;
         private $logo;
@@ -50,6 +52,11 @@
 
         public function getId() {
             return $this->id;
+        }
+
+        // FUNCIÓN OBTENER URL ASOCIADOS
+        public function getUrlAsociados() : string {
+            return self::RUTA_IMAGENES_ASOCIADOS.$this->getLogo();
         }
 
         public function toArray(): array {
