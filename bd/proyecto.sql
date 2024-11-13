@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2024 a las 21:16:53
+-- Tiempo de generación: 13-11-2024 a las 15:50:37
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -33,6 +33,16 @@ CREATE TABLE `asociados` (
   `logo` varchar(255) DEFAULT NULL,
   `descripcion` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `asociados`
+--
+
+INSERT INTO `asociados` (`id`, `nombre`, `logo`, `descripcion`) VALUES
+(1, 'Logo 1', 'log1.jpg', 'Logo 1'),
+(2, 'Logo 2', 'log2.jpg', 'Logo 2'),
+(3, 'Logo 3', 'log3.jpg', 'Logo 3'),
+(4, 'Logo 4', 'log4.jpg', 'Logo 4');
 
 -- --------------------------------------------------------
 
@@ -106,6 +116,13 @@ CREATE TABLE `mensajes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Volcado de datos para la tabla `mensajes`
+--
+
+INSERT INTO `mensajes` (`id`, `nombre`, `apellidos`, `asunto`, `email`, `texto`, `fecha`) VALUES
+(1, 'Mario', 'Iglesias', 'MENSAJE DE PRUEBA', 'asd@gmai.com', 'Esto es un mensaje de prueba', '2024-11-13 15:47:12');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -142,7 +159,7 @@ ALTER TABLE `mensajes`
 -- AUTO_INCREMENT de la tabla `asociados`
 --
 ALTER TABLE `asociados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -160,7 +177,7 @@ ALTER TABLE `imagenes`
 -- AUTO_INCREMENT de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas

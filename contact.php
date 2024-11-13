@@ -50,8 +50,6 @@
             $mensaje = new Message($nombre, $apellido, $asunto, $correo, $mensaje);
 
             $messageRepository->guarda($mensaje);
-
-            echo "El mensaje se ha guardado correctamente.";
         }
     }
 
