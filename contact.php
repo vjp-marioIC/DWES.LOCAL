@@ -1,5 +1,11 @@
 <?php
-    
+    require_once 'entities/File.class.php';
+    require_once 'entities/Connection.class.php';
+    require_once 'entities/QueryBuilder.class.php';
+    require_once 'exceptions/AppException.class.php';
+    require_once 'entities/Message.class.php';
+    require_once 'repository/MessageRepository.class.php';
+
     $erroresValidacion = [];
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -33,6 +39,21 @@
             'Asunto: ' => $asunto,
             'Mensaje: ' => $mensaje
         ];
+
+        $config = require_once 'app/config.php';
+        
+        // Guardamos la configuración en el contenedor de servicios:
+        App::bind('config', $config);
+
+        // SI ($erroresValidacion) ESTÁ VACÍO, GUARO EL MENSAJE EN LA BD
+        if (empty($erroresValidacion)) {
+            $nuevoMensaje = new Message($nombre, $apellido, $asunto, $correo, $mensaje);
+
+            $queryBuilder = new MessageRepository();
+            $queryBuilder->save($nuevoMensaje);
+
+            echo "El mensaje se ha guardado correctamente.";
+        }
     }
 
     require 'views/contact.view.php';
