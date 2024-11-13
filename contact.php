@@ -41,16 +41,15 @@
         ];
 
         $config = require_once 'app/config.php';
-        
         // Guardamos la configuración en el contenedor de servicios:
         App::bind('config', $config);
+        $messageRepository = new MessageRepository();
 
         // SI ($erroresValidacion) ESTÁ VACÍO, GUARO EL MENSAJE EN LA BD
         if (empty($erroresValidacion)) {
-            $nuevoMensaje = new Message($nombre, $apellido, $asunto, $correo, $mensaje);
+            $mensaje = new Message($nombre, $apellido, $asunto, $correo, $mensaje);
 
-            $queryBuilder = new MessageRepository();
-            $queryBuilder->save($nuevoMensaje);
+            $messageRepository->guarda($mensaje);
 
             echo "El mensaje se ha guardado correctamente.";
         }

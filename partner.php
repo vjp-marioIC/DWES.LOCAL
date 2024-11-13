@@ -16,7 +16,6 @@
         // Guardamos la configuración en el contenedor de servicios:
         App::bind('config', $config);
         
-        //$queryBuilder = new QueryBuilder('imagenes', 'ImagenGaleria');
         $asociadosRepository = new AsociadosRepository();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -26,12 +25,11 @@
             // Tipología MIME 'tipodearchivo/extension'
             $logo = new File('logo', $tiposAceptados);
 
-            // El parametro (filename) es 'imagen' por que así se lo indicamos en el
-            // formulario (type = "file" name = "imagen")
             $logo ->saveUploadFile(Partner::RUTA_IMAGENES_ASOCIADOS);
             
             $asociado = new Partner($nombre, $logo->getFileName(), $descripcion);
-            $asociadosRepository->save($asociado);
+            
+            $asociadosRepository->guarda($asociado);
             $descripcion = ''; // Reinicio la variable para que no aparezca relleno en el formulario
             $mensaje = "Logo guardado";
         }
@@ -40,7 +38,7 @@
         // Guardo en un array los errores
         $errores[] = $exception->getMessage();
     } finally {
-        // OBTENGO TODAS LA IMAGENES Y LAS CATEGORIAS
+        // OBTENGO TODAS LA IMAGENES DE LOS ASOCIADOS
         $asociados = $asociadosRepository->findAll();
     }
 
