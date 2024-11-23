@@ -19,7 +19,7 @@
             $this->asunto = $asunto;
             $this->email = $email;
             $this->texto = $texto;
-            $this->fecha = $fecha ?? new DateTime(); // PONGO LA FECHA ACTUAL
+            $this->fecha = $fecha ?? new DateTime(); // INICIALIZO CON LA FECHA ACTUAL
             $this->id = null;
         }
 
@@ -76,6 +76,7 @@
             return $this->id;
         }
 
+        // MÉTODO (toArray)
         public function toArray(): array {
             return [
                 'id' => $this->getId(),
@@ -85,7 +86,7 @@
                 'email' => $this->getEmail(),
                 'texto' => $this->getTexto(),
                 'fecha' => $this->getFecha()->format('Y-m-d H:i:s')
-                // PADO LA FECHA A STRING CON FORMATO PARA QUE SEA LEIDA POR LA SENTENCIA SQL
+                // PASO LA FECHA A (STRING) CON FORMATO PARA QUE SEA LEIDA POR LA SENTENCIA SQL
             ];
         }
     }

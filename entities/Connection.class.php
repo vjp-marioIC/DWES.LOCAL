@@ -2,10 +2,14 @@
     require_once __DIR__. '/App.class.php';
 
     class Connection {
+
+        // MÉTODO PARA CREAR UNA CONEXIÓN A LA BASE DE DATOS UTILIZANDO (PDO)
         public static function make() {
             try {
-                $config = App::get('config')['database']; // Utilizamos el contenedor de servicios
-                                                          // para obtener la configuración
+
+                // OBTENGO LA CONFIGURACIÓN DE A BD UTILIZANDO (App)
+                // (config) TIENE LA CLAVE (database) CON LOS PARAMETROS NECESARIOS
+                $config = App::get('config')['database']; 
 
                 $connection = new PDO(
                     $config['connection'] . ';dbname=' . $config['name'],

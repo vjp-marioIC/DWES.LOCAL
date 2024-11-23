@@ -3,6 +3,7 @@
 
     class ImagenGaleria implements IEntity {
 
+        // CONSTANTES
         const RUTA_IMAGENES_PORTFOLIO = 'images/index/portfolio/';
         const RUTA_IMAGENES_GALLERY  = 'images/index/gallery/';
 
@@ -101,6 +102,7 @@
             return self::RUTA_IMAGENES_GALLERY.$this->getNombre();
         }
 
+        // MÉTODO (toArray)
         public function toArray(): array {
             return [
                 'id' => $this->getId(),

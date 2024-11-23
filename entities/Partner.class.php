@@ -3,6 +3,7 @@
 
     class Partner implements IEntity{
 
+        // CONSTANTES
         const RUTA_IMAGENES_ASOCIADOS  = 'images/index/';
 
         // ATRIBUTOS
@@ -59,6 +60,7 @@
             return self::RUTA_IMAGENES_ASOCIADOS.$this->getLogo();
         }
 
+        // MÉTODO (toArray)
         public function toArray(): array {
             return [
                 'id' => $this->getId(),
