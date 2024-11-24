@@ -18,19 +18,17 @@
         // Guardamos la configuración en el contenedor de servicios:
         App::bind('config', $config);
         
-        //$queryBuilder = new QueryBuilder('imagenes', 'ImagenGaleria');
         $imagenRepository = new ImagenGaleriaRepository();
         $categoriaRepository = new CategoriaRepository();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // ELIMINO LOS ESPACIOS EN BLANCO CON (trim)
             $descripcion = trim(htmlspecialchars($_POST['descripcion']));
             $categoria = trim(htmlspecialchars($_POST['categoria']));
             $tiposAceptados = ['image/jpeg', 'image/jpg', 'image/gif', 'image/png'];
-            // Tipología MIME 'tipodearchivo/extension'
+            
             $imagen = new File('imagen', $tiposAceptados);
 
-            // El parametro (filename) es 'imagen' por que así se lo indicamos en el
-            // formulario (type = "file" name = "imagen")
             $imagen ->saveUploadFile(ImagenGaleria::RUTA_IMAGENES_GALLERY);
             $imagen->copyFile(ImagenGaleria::RUTA_IMAGENES_GALLERY, ImagenGaleria::RUTA_IMAGENES_PORTFOLIO);
             

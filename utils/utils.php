@@ -15,8 +15,8 @@
         return $active;
     }
 
+    // MÉTODO PARA COMPROBAR SI ALGUNA OPCIÓN DE UN ARRAY ($arrayOpciones) ESTÁ ACTIVA
     function existeOpcionMenuActivaEnArray($arrayOpciones): bool {
-
         // RECORRO EL ARRAY DE OPCIONES
         foreach ($arrayOpciones as $opcion) {
             // SI LA OPCIÓN QUE SE LE PASA ES LA ACTIVA SE PONE A TRUE

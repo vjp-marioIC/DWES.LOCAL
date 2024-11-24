@@ -7,7 +7,9 @@
             parent::__construct($table, $classEntity);
         }
 
+        // MÉTODO PARA GUARDAR EL MENSAJE DE EL FORMULARIO DE CONTACTO
         public function guarda(Message $message) {
+            // EL (use) ES PARA PASARLE EL MENSAJE
             $fnGuardaMensaje = function () use ($message) {
                 $this->save($message); // GUARDA EL MENSAJE
             };

@@ -19,10 +19,11 @@
         $asociadosRepository = new AsociadosRepository();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // ELIMINO LOS ESPACIOS EN BLANCO CON (trim)
             $nombre = trim(htmlspecialchars($_POST['nombre']));
             $descripcion = trim(htmlspecialchars($_POST['descripcion']));
             $tiposAceptados = ['image/jpeg', 'image/jpg', 'image/gif', 'image/png'];
-            // Tipología MIME 'tipodearchivo/extension'
+            
             $logo = new File('logo', $tiposAceptados);
 
             $logo ->saveUploadFile(Partner::RUTA_IMAGENES_ASOCIADOS);

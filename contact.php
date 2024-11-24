@@ -9,6 +9,7 @@
     $erroresValidacion = [];
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // ELIMINO LOS ESPACIOS EN BLANCO CON (trim)
         $nombre = trim(htmlspecialchars($_POST['nombre']));
         $apellido = trim(htmlspecialchars($_POST['apellido']));
         $correo = trim(htmlspecialchars($_POST['correo']));
