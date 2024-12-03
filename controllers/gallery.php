@@ -13,11 +13,6 @@
     $mensaje = '';
 
     try {
-        $config = require_once 'app/config.php';
-        
-        // Guardamos la configuración en el contenedor de servicios:
-        App::bind('config', $config);
-        
         $imagenRepository = new ImagenGaleriaRepository();
         $categoriaRepository = new CategoriaRepository();
 
@@ -48,5 +43,5 @@
         $categorias = $categoriaRepository->findAll();
     }
     
-    require 'views/gallery.view.php';
+    require __DIR__. '/../views/gallery.view.php';
 ?>

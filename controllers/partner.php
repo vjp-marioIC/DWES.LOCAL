@@ -11,11 +11,6 @@
     $mensaje = '';
 
     try {
-        $config = require_once 'app/config.php';
-        
-        // Guardamos la configuración en el contenedor de servicios:
-        App::bind('config', $config);
-        
         $asociadosRepository = new AsociadosRepository();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -43,5 +38,5 @@
         $asociados = $asociadosRepository->findAll();
     }
 
-    require 'views/partner.view.php';
+    require __DIR__. '/../views/partner.view.php';
 ?>

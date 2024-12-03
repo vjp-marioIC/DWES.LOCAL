@@ -54,5 +54,5 @@
         }
     }
 
-    require 'views/contact.view.php';
+    require __DIR__. '/../views/contact.view.php';
 ?>
