@@ -1,17 +1,21 @@
 <?php
     // MÉTODO PARA SABER SI LA OPCIÓN DE LA CABECERA ESTÁ ACTIVA
-    function esOpcionMenuActiva(string $opcionMenu): bool{
+    function esOpcionMenuActiva(string $opcionMenu): bool {
         $active = false;
-
-        //OBTENGO LA URL ACTUAL
-        $uri = $_SERVER['PHP_SELF'];
-
-        //VERIFICO QUE LA OPCIÓN DEL MENÚ ES IGUAL A LA DE LA URL
-        //SI ES ASI RETORNO TRUE Y SE PONE ACTIVA
+    
+        // OBTENGO LA URL ACTUAL
+        $uri = $_SERVER['REQUEST_URI'];
+    
+        // CONDICIÓN ESPECIAL PARA HOME
+        if ($opcionMenu === 'index' && ($uri === '/' || $uri === '/index.php')) {
+            return true;
+        }
+    
+        // VERIFICO QUE LA OPCIÓN DEL MENÚ ESTÁ EN LA URL
         if (strpos($uri, $opcionMenu) !== false) {
             return true;
         }
-
+    
         return $active;
     }
 
