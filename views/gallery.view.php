@@ -6,6 +6,7 @@
     <div class="container">
         <div class="col-xs-12 col-sm-8 col-sm-push-2">
             <h1>GALERIA</h1>
+            
             <hr>
 
             <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') : ?>
@@ -24,7 +25,7 @@
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
-            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?= $_SERVER['REQUEST_URI']; ?>">
+            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="gallery/new">
                 <div class="form-group">
                     <div class="col-xs-12">
                         <label class="label-control" for="imagen">Imagen</label>
