@@ -6,5 +6,5 @@
     $router->get('contact', 'controllers/contact.php');
     $router->get('gallery', 'controllers/gallery.php');
     $router->get('post', 'controllers/single_post.php');
-    $router->get('gallery/new', 'controllers/new-image-gallery.php');
+    $router->get('gallery/new', 'controllers/gallery_new.php');
 ?>
