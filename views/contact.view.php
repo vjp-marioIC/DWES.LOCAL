@@ -35,7 +35,7 @@
 				</div>
 			<?php endif; ?>
 
-	       <form class="form-horizontal" action="<?=$_SERVER['REQUEST_URI'];?>" method="post">
+	       <form class="form-horizontal" method="post" action="message/new">
 	       	  <div class="form-group">
 	       	  	<div class="col-xs-6">
 	       	  	    <label class="label-control" for="nombre">First Name</label>
