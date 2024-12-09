@@ -24,7 +24,7 @@
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
-            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="<?= $_SERVER['REQUEST_URI']; ?>">
+            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="partner/new">
                 <div class="form-group">
                     <div class="col-xs-12">
                         <label class="label-control" for="nombre">Nombre</label>
