@@ -1,9 +1,9 @@
 <?php
-    require_once 'entities/ImagenGaleria.class.php';
-    require_once 'entities/Partner.class.php';
-    require_once 'entities/Connection.class.php';
-    require_once 'repository/ImagenGaleriaRepository.class.php';
-    require_once 'repository/AsociadosRepository.class.php';
+    use proyecto\exceptions\AppException;
+    use proyecto\exceptions\FileException;
+    use proyecto\exceptions\QueryException;
+    use proyecto\repository\ImagenGaleriaRepository;
+    use proyecto\repository\AsociadosRepository;
 
     // IMAGENES GALERÍA
     try {

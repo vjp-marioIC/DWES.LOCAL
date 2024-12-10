@@ -1,4 +1,6 @@
 <?php
+    namespace proyecto\utils;
+
     // MÉTODO PARA SABER SI LA OPCIÓN DE LA CABECERA ESTÁ ACTIVA
     function esOpcionMenuActiva(string $opcionMenu): bool {
         $active = false;

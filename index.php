@@ -1,8 +1,12 @@
 <?php
-    require_once 'utils/boostrap.php';
+    use proyecto\exceptions\NotFoundException;
+    use proyecto\utils\Request;
+    use proyecto\utils\Router;
+
+    require 'utils/boostrap.php';
 
     try {
-        require App::get('router')->direct(Request::uri(), Request::method());
+        require Router::load('app/routes.php')->direct(Request::uri(), Request::method());
     } catch (NotFoundException $exception) {
         die($exception->getMessage());
     }  

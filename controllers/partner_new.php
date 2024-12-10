@@ -1,10 +1,11 @@
 <?php
-    require_once 'entities/File.class.php';
-    require_once 'entities/Partner.class.php';
-    require_once 'entities/Connection.class.php';
-    require_once 'entities/QueryBuilder.class.php';
-    require_once 'exceptions/AppException.class.php';
-    require_once 'repository/AsociadosRepository.class.php';
+    use proyecto\exceptions\AppException;
+    use proyecto\exceptions\FileException;
+    use proyecto\exceptions\QueryException;
+    use proyecto\repository\AsociadosRepository;
+    use proyecto\entities\Partner;
+    use proyecto\entities\File;
+    use proyecto\entities\App;
 
     $errores = [];
     $descripcion = '';

@@ -1,6 +1,6 @@
 <?php
-    require_once __DIR__. '/../exceptions/FileException.class.php';
-    require_once __DIR__. '/../utils/const.php';
+    namespace proyecto\entities;
+    use proyecto\exceptions\FileException;
 
     class File {
         // ATRIBUTOS

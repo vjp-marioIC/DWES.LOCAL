@@ -1,5 +1,7 @@
 <?php
-    require_once __DIR__. '/../exceptions/AppException.class.php';
+    namespace proyecto\entities;
+    use proyecto\entities\Connection;
+    use proyecto\exceptions\AppException;
 
     class App {
         private static $container=[];

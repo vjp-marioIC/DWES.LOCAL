@@ -1,6 +1,12 @@
 <?php
-    require_once __DIR__. '/../exceptions/QueryException.class.php';
-    require_once __DIR__. '/App.class.php';
+    namespace proyecto\entities;
+    use proyecto\entities\App;
+    use proyecto\exceptions\QueryException;
+    use proyecto\exceptions\NotFoundException;
+    use proyecto\database\IEntity;
+    use PDO;
+    use PDOException;
+    
 
     abstract class QueryBuilder {
         // ATRIBUTOS

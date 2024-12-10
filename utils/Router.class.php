@@ -1,4 +1,7 @@
 <?php
+    namespace proyecto\utils;
+    use proyecto\exceptions\NotFoundException;
+
     class Router {
         // ATRIBUTOS
         private $routes;

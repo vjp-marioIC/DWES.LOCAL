@@ -1,5 +1,6 @@
 <?php
-    require_once __DIR__. '/../database/IEntity.class.php';
+    namespace proyecto\entities;
+    use proyecto\database\IEntity;
 
     class Categoria implements IEntity{
         // ATRIBUTOS

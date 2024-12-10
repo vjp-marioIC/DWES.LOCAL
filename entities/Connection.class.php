@@ -1,5 +1,8 @@
 <?php
-    require_once __DIR__. '/App.class.php';
+    namespace proyecto\entities;
+    use PDO;
+    use PDOException;
+    use proyecto\exceptions\AppException;
 
     class Connection {
 

@@ -1,4 +1,7 @@
 <?php
+    namespace proyecto\entities;
+    use Monolog;
+
     class MyLog {
         // ATRIBUTOS
         private $log;

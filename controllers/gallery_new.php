@@ -1,12 +1,11 @@
 <?php
-    require_once 'entities/File.class.php';
-    require_once 'entities/ImagenGaleria.class.php';
-    require_once 'entities/Connection.class.php';
-    require_once 'entities/QueryBuilder.class.php';
-    require_once 'exceptions/AppException.class.php';
-    require_once 'repository/ImagenGaleriaRepository.class.php';
-    require_once 'repository/CategoriaRepository.class.php';
-    require_once 'entities/Categoria.class.php';
+    use proyecto\exceptions\AppException;
+    use proyecto\exceptions\FileException;
+    use proyecto\exceptions\QueryException;
+    use proyecto\entities\ImagenGaleria;
+    use proyecto\entities\File;
+    use proyecto\repository\ImagenGaleriaRepository;
+    use proyecto\entities\App;
 
     $errores = [];
     $descripcion = '';
