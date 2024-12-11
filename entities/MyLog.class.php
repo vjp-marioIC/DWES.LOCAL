@@ -1,6 +1,7 @@
 <?php
     namespace proyecto\entities;
-    use Monolog;
+    use Monolog\Logger;
+    use Monolog\Handler\StreamHandler;
 
     class MyLog {
         // ATRIBUTOS
