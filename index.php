@@ -1,7 +1,7 @@
 <?php
-    use proyecto\exceptions\NotFoundException;
     use proyecto\utils\Request;
     use proyecto\utils\Router;
+    use proyecto\exceptions\NotFoundException;
 
     require 'utils/boostrap.php';
 

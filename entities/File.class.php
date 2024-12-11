@@ -1,6 +1,7 @@
 <?php
     namespace proyecto\entities;
     use proyecto\exceptions\FileException;
+    use function proyecto\utils\getErrorStrings;
 
     class File {
         // ATRIBUTOS

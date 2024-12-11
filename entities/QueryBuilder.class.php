@@ -1,12 +1,11 @@
 <?php
     namespace proyecto\entities;
     use proyecto\entities\App;
-    use proyecto\exceptions\QueryException;
-    use proyecto\exceptions\NotFoundException;
     use proyecto\database\IEntity;
     use PDO;
     use PDOException;
-    
+    use proyecto\exceptions\QueryException;
+    use proyecto\exceptions\NotFoundException;
 
     abstract class QueryBuilder {
         // ATRIBUTOS

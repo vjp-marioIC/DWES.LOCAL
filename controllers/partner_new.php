@@ -5,7 +5,6 @@
     use proyecto\repository\AsociadosRepository;
     use proyecto\entities\Partner;
     use proyecto\entities\File;
-    use proyecto\entities\App;
 
     $errores = [];
     $descripcion = '';

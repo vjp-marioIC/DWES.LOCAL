@@ -1,5 +1,5 @@
 <?php
-   namespace proyecto\utils;
+    namespace proyecto\utils;
 
     class Request {
         public static function uri() {
