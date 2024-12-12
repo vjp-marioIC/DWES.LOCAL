@@ -29,7 +29,7 @@
     
         $descripcion = '';
         $mensaje = 'Imagen guardada';
-        App::get('logger')->log->info($mensaje);
+        App::get('logger')->crearLog($mensaje);
     }
     catch (FileException | QueryException | AppException $exception) {
         // Guardo en un array los errores

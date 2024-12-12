@@ -1,6 +1,4 @@
 <?php
-    namespace proyecto\utils;
-
     function getErrorStrings($error) {
         $errorDevuelto = match ($error) {
             UPLOAD_ERR_OK => "No hay ningún error.",

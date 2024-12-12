@@ -1,7 +1,8 @@
 <?php
     namespace proyecto\entities;
     use proyecto\exceptions\FileException;
-    use function proyecto\utils\getErrorStrings;
+    
+    require_once 'utils/const.php';
 
     class File {
         // ATRIBUTOS

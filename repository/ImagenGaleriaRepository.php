@@ -6,7 +6,7 @@
 
     class ImagenGaleriaRepository extends QueryBuilder {
         // CONSTRUCTOR EN EL QUE SE LE PASA EL NOMBRE DE LA TABLA Y LA CLASE ASOCIADA A ESA TABLA
-        public function __construct(string $table='imagenes', string $classEntity='ImagenGaleria') {
+        public function __construct(string $table='imagenes', string $classEntity= ImagenGaleria::class) {
             parent::__construct($table, $classEntity);
         }
 

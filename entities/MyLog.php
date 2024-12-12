@@ -2,7 +2,6 @@
     namespace proyecto\entities;
     use Monolog\Logger;
     use Monolog\Handler\StreamHandler;
-    use Monolog\Level;
 
     class MyLog {
         // ATRIBUTOS
@@ -11,7 +10,11 @@
         // CONSTRUCTOR
         public function __construct(string $filename) {
             $this->log = new Logger('name');
-            $this->log->pushHandler(new StreamHandler($filename, Level::Info));
+            $this->log->pushHandler(new StreamHandler($filename, Logger::INFO));
+        }
+
+        public function crearLog(string $message):void {
+            $this->log->info($message);
         }
     }
 ?>

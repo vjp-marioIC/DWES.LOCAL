@@ -5,7 +5,7 @@
 
     class AsociadosRepository extends QueryBuilder {
         // CONSTRUCTOR EN EL QUE SE LE PASA EL NOMBRE DE LA TABLA Y LA CLASE ASOCIADA A ESA TABLA
-        public function __construct(string $table='asociados', string $classEntity='Partner') {
+        public function __construct(string $table='asociados', string $classEntity= Partner::class) {
             parent::__construct($table, $classEntity);
         }
 
