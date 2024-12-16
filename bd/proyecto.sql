@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-12-2024 a las 16:23:36
+-- Tiempo de generación: 16-12-2024 a las 16:36:52
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -42,7 +42,7 @@ INSERT INTO `asociados` (`id`, `nombre`, `logo`, `descripcion`) VALUES
 (1, 'Logo 1', 'log1.jpg', 'Logo 1'),
 (2, 'Logo 2', 'log2.jpg', 'Logo 2'),
 (3, 'Logo 3', 'log3.jpg', 'Logo 3'),
-(4, 'Log4', 'log4.jpg', 'Log4');
+(4, 'Logo 4', 'log4.jpg', 'Logo 4');
 
 -- --------------------------------------------------------
 
