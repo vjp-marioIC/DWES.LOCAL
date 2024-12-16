@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-11-2024 a las 15:50:37
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Tiempo de generación: 16-12-2024 a las 16:23:36
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `asociados` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `logo` varchar(255) DEFAULT NULL,
-  `descripcion` text DEFAULT NULL
+  `nombre` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `logo` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `descripcion` text COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -41,7 +41,8 @@ CREATE TABLE `asociados` (
 INSERT INTO `asociados` (`id`, `nombre`, `logo`, `descripcion`) VALUES
 (1, 'Logo 1', 'log1.jpg', 'Logo 1'),
 (2, 'Logo 2', 'log2.jpg', 'Logo 2'),
-(3, 'Logo 3', 'log3.jpg', 'Logo 3');
+(3, 'Logo 3', 'log3.jpg', 'Logo 3'),
+(4, 'Log4', 'log4.jpg', 'Log4');
 
 -- --------------------------------------------------------
 
@@ -51,7 +52,7 @@ INSERT INTO `asociados` (`id`, `nombre`, `logo`, `descripcion`) VALUES
 
 CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
+  `nombre` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `numImagenes` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -60,7 +61,7 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id`, `nombre`, `numImagenes`) VALUES
-(1, 'Categoría 1', 0),
+(1, 'Categoría 1', 1),
 (2, 'Categoría 2', 0),
 (3, 'Categoría 3', 0);
 
@@ -72,13 +73,20 @@ INSERT INTO `categorias` (`id`, `nombre`, `numImagenes`) VALUES
 
 CREATE TABLE `imagenes` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `descripcion` text DEFAULT NULL,
+  `nombre` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `descripcion` text COLLATE utf8_spanish_ci DEFAULT NULL,
   `numVisualizaciones` int(11) DEFAULT 0,
   `numLikes` int(11) DEFAULT 0,
   `numDownloads` int(11) DEFAULT 0,
   `categoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `imagenes`
+--
+
+INSERT INTO `imagenes` (`id`, `nombre`, `descripcion`, `numVisualizaciones`, `numLikes`, `numDownloads`, `categoria`) VALUES
+(1, '1.jpg', 'Img1', 1515, 8931, 8706, 1);
 
 -- --------------------------------------------------------
 
@@ -88,11 +96,11 @@ CREATE TABLE `imagenes` (
 
 CREATE TABLE `mensajes` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `apellidos` varchar(255) DEFAULT NULL,
-  `asunto` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `texto` text DEFAULT NULL,
+  `nombre` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `apellidos` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `asunto` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `texto` text COLLATE utf8_spanish_ci DEFAULT NULL,
   `fecha` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -133,19 +141,19 @@ ALTER TABLE `mensajes`
 -- AUTO_INCREMENT de la tabla `asociados`
 --
 ALTER TABLE `asociados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `mensajes`
